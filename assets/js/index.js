@@ -22,6 +22,8 @@ fetchCats();
 
 // Query selectors
 const dropdown = document.querySelector('.dropdown');
+const dropdownToggle = dropdown.querySelector('.dropdown-toggle');
+const dropdownMenu = dropdown.querySelector('.dropdown-menu');
 const catContent = document.querySelector('.cat-content')
 const catName = document.querySelector('.cat-name');
 const description = document.querySelector('.description')
@@ -30,18 +32,16 @@ const origin = document.querySelector('.origin');
 
 // Populate all of the cat data into the drop down menu
 const populateCats = (breeds) => {
-  const breedOptions = breeds.map((breed) => {
-    const option = document.createElement('option');
-    option.text = breed.name;
-    dropdown.appendChild(option);
-    return option;
+  breeds.forEach((breed) => {
+    const listItem = document.createElement('li');
+    listItem.textContent = breed.name;
+    dropdownMenu.appendChild(listItem);
   });
 };
 
 // Call the fetchCats function and then run it through populateCats with that data that the API gave me
-const catData = fetchCats().then(function (data) {
+const catData = fetchCats().then((data) => {
   populateCats(data);
-  return data;
 });
 
 // Compare what the user selected to the array of cat objects
@@ -55,30 +55,30 @@ function compareUserInputToData(selectedCat) {
       catName.innerHTML = matchedCat.name;
       // origin.innerHTML = 'Origin: ' + matchedCat.origin
       description.innerHTML = matchedCat.description
-      pic.setAttribute('src', 'https://cdn2.thecatapi.com/images/' + matchedCat.reference_image_id + '.jpg'
-      )
+      const imageUrl = 'http://cdn2.thecatapi.com/images/' + matchedCat.reference_image_id + '.jpg';
+      pic.setAttribute('src', imageUrl)
+
       return matchedCat;
     }
   });
 }
 
-// function onFocus() {
-//   dropdown.setAttribute('size', 15);
-// };
 
-// function onBlur(){
-//   dropdown.removeAttribute('size');
-// };
-
-// document.addEventListener("DOMContentLoaded", function() {
-//   dropdown.onfocus = onFocus;
-//   dropdown.onblur = onBlur;
-// });
 
 dropdown.addEventListener('change', function (eventOnChild) {
   const selectedCat = eventOnChild.target.value;
   compareUserInputToData({ name: selectedCat });
   // onBlur()
+});
+
+dropdownToggle.addEventListener('click', function () {
+  dropdownMenu.style.display = dropdownMenu.style.display === 'none' ? 'block' : 'none';
+});
+
+dropdownMenu.addEventListener('click', function (event) {
+  const selectedCat = event.target.textContent;
+  compareUserInputToData({ name: selectedCat });
+  dropdownMenu.style.display = 'none';
 });
 
 

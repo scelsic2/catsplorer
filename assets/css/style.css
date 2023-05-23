@@ -17,7 +17,16 @@ header {
     /* background-image: url('../images/cats-paw-2.png');
     height: 250px; */
     background-color: var(--header);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
 }
+
+header > img {
+    padding-left: 5px;
+}
+
 body {
     background-color: var(--background);
     display: flex;
@@ -30,14 +39,61 @@ section {
     flex: 1;
 }
 
-.select-div {
+/* .select-div {
     text-align: center;
     margin: 30px;
+} */
+
+.dropdown-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.dropdown {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+  }
+  
+.dropdown-toggle {
+    width: 200px; /* Adjust the width as needed */
+    padding: 10px;
+    background-color: var(--header);
+    color: var(--text);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+  
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 240px; /* Adjust the max height as needed */
+    overflow-y: auto;
+    background-color: var(--header);
+    color: var(--text);
+    list-style: none;
+    display: none;
+}
+  
+.dropdown-menu li {
+    padding: 5px;
+    cursor: pointer;
+}
+  
+.dropdown-menu li:hover {
+    background-color: var(--background);
+    color: var(--text);
 }
 
 .cat-content {
     display: flex;
     flex-direction: column;
+    margin: 20px;
 }
 
 .pic-div {
@@ -58,15 +114,26 @@ ul {
 
 .facts-ul{
     padding: 20px;
+    text-align: justify;
+    width: 500px;
+    margin: auto;
 }
 
 footer {
-    /* position: fixed; */
     left: 0;
     bottom: 0;
     width: 100%;
     text-align: center;
     padding: 10px;
+}
+
+.footer-nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.credits {
+    font-size: x-small;
 }
 
 .hide-me {
@@ -75,7 +142,12 @@ footer {
 
 @media (max-width: 767px) {
     .pic-div > img {
-      width: 100%; /* Shrink photo to fit mobile screen */
-      height: auto; /* Maintain aspect ratio */
+        width: 100%; /* Shrink photo to fit mobile screen */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .facts-ul {
+        width: 90%; /* Shrink photo to fit mobile screen */
+        height: auto; /* Maintain aspect ratio */
     }
   }
