@@ -1,30 +1,67 @@
 :root {
-    --background: #F1DFCF
+    --background: #F9DAC6;
+    --header: #E89F79;
+    --text: #603F33;
 }
 
 * {
     margin: 0;
     padding: 0;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text)
 }
 
 header {
     padding: 10px;
+    text-align: center;
+    /* background-image: url('../images/cats-paw-2.png');
+    height: 250px; */
+    background-color: var(--header);
 }
-
 body {
     background-color: var(--background);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-.dropdown {
-    max-height: 146px;
-    overflow: scroll;
-    overflow-x: hidden;
-    margin-top: 0px;
+section {
+    margin: 20px;
+    flex: 1;
+}
+
+.select-div {
+    text-align: center;
+    margin: 30px;
+}
+
+.cat-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.pic-div {
+    margin: auto;
+}
+
+.cat-name {
+    text-align: center;
+}
+
+.facts-div {
+    padding: 20px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.facts-ul{
+    padding: 20px;
 }
 
 footer {
-    position: fixed;
+    /* position: fixed; */
     left: 0;
     bottom: 0;
     width: 100%;
@@ -35,3 +72,10 @@ footer {
 .hide-me {
     display: none;
 }
+
+@media (max-width: 767px) {
+    .pic-div > img {
+      width: 100%; /* Shrink photo to fit mobile screen */
+      height: auto; /* Maintain aspect ratio */
+    }
+  }

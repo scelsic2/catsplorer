@@ -53,7 +53,7 @@ function compareUserInputToData(selectedCat) {
       console.log(matchedCat);
       catContent.classList.remove('hide-me')
       catName.innerHTML = matchedCat.name;
-      origin.innerHTML = 'Origin: ' + matchedCat.origin
+      // origin.innerHTML = 'Origin: ' + matchedCat.origin
       description.innerHTML = matchedCat.description
       pic.setAttribute('src', 'https://cdn2.thecatapi.com/images/' + matchedCat.reference_image_id + '.jpg'
       )
@@ -62,23 +62,23 @@ function compareUserInputToData(selectedCat) {
   });
 }
 
-function onFocus() {
-  dropdown.setAttribute('size', 15);
-};
+// function onFocus() {
+//   dropdown.setAttribute('size', 15);
+// };
 
-function onBlur(){
-  dropdown.removeAttribute('size');
-};
+// function onBlur(){
+//   dropdown.removeAttribute('size');
+// };
 
-document.addEventListener("DOMContentLoaded", function() {
-  dropdown.onfocus = onFocus;
-  dropdown.onblur = onBlur;
-});
+// document.addEventListener("DOMContentLoaded", function() {
+//   dropdown.onfocus = onFocus;
+//   dropdown.onblur = onBlur;
+// });
 
 dropdown.addEventListener('change', function (eventOnChild) {
   const selectedCat = eventOnChild.target.value;
   compareUserInputToData({ name: selectedCat });
-  onBlur()
+  // onBlur()
 });
 
 
