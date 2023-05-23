@@ -1,0 +1,37 @@
+:root {
+    --background: #F1DFCF
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+header {
+    padding: 10px;
+}
+
+body {
+    background-color: var(--background);
+}
+
+.dropdown {
+    max-height: 146px;
+    overflow: scroll;
+    overflow-x: hidden;
+    margin-top: 0px;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+
+.hide-me {
+    display: none;
+}
